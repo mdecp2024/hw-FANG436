@@ -130,7 +130,7 @@ img.add_border {
                             <li><a href="./../blog/index.html">blog</a></li>
                         </ul>
                       </li>
-                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='w11.html'>w11</a></li></li></ul></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li><a href='HW 3 Exam.html'>HW 3 Exam</a></li></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
+                     <li><a href='About.html'>About</a><li><a href='Attendance.html'>Attendance</a><li class='has-children'><a href='HW 1.html'>HW 1</a><ul class='dropdown'><li class='has-children'><a href='HW 1 Exam.html'>HW 1 Exam</a><ul class='dropdown'><li><a href='w7.html'>w7</a><li><a href='w10.html'>w10</a><li><a href='w11.html'>w11</a><li><a href='w12.html'>w12</a></li></li></ul></ul><li class='has-children'><a href='HW 2.html'>HW 2</a><ul class='dropdown'><li><a href='HW 2 Exam.html'>HW 2 Exam</a></li></ul><li class='has-children'><a href='HW 3.html'>HW 3</a><ul class='dropdown'><li><a href='HW 3 Exam.html'>HW 3 Exam</a></li></ul><li class='has-children'><a href='HW 4.html'>HW 4</a><ul class='dropdown'><li><a href='HW 4 Exam.html'>HW 4 Exam</a></li></ul><li><a href='Final Report.html'>Final Report</a><li><a href='Brython.html'>Brython</a></li>
                       </ul>
                 </nav>
               </div>
@@ -141,12 +141,75 @@ img.add_border {
           </div>
           
         </header>
-    <div id="tipue_search_content">w10 << <a href='w10.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2<br /><h1>w11</h1>
-<p>**圓形</p>
-<p><a href="https://mdecp2024.github.io/hw-FANG436/content/Brython-1.html?src=https://gist.githubusercontent.com/FANG436/f66548d89d21cd65b2a47927a34d1b72/raw/f0b8526076b7b2de6f7700aa39850d0e4906e65c/w11_hw">https://mdecp2024.github.io/hw-FANG436/content/Brython-1.html?src=https://gist.githubusercontent.com/FANG436/f66548d89d21cd65b2a47927a34d1b72/raw/f0b8526076b7b2de6f7700aa39850d0e4906e65c/w11_hw</a></p>
-<p>像素圓型</p>
-<p><a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/8111f1c9b6676ceb13e9df95d6a896c1/raw/52afea7929604d2ed6a214029dde926ba9495509/w11_hw-2">https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/8111f1c9b6676ceb13e9df95d6a896c1/raw/52afea7929604d2ed6a214029dde926ba9495509/w11_hw-2</a></p>
-<br />w10 << <a href='w10.html'>Previous</a> <a href='HW 2.html'>Next</a> >> HW 2</div>
+    <div id="tipue_search_content">w10 << <a href='w10.html'>Previous</a> <a href='w12.html'>Next</a> >> w12<br /><h1>w11</h1>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<p><a href="https://mdecp2024.github.io/hw-FANG436/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/f66548d89d21cd65b2a47927a34d1b72/raw/f0b8526076b7b2de6f7700aa39850d0e4906e65c/w11_hw">圓形</a></p>
+<p><a href="https://mdecp2024.github.io/hw-FANG436/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/8111f1c9b6676ceb13e9df95d6a896c1/raw/52afea7929604d2ed6a214029dde926ba9495509/w11_hw-2">像素圓型</a></p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+# 從 browser 模組導入 html
+from browser import html
+# 從 browser 導入 document 並且重新命名為 doc
+from browser import document as doc
+ 
+# 建立 canvas
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+ 
+# 設定每格的大小
+gs = 20  # 每格 20x20 像素
+ctx = canvas.getContext("2d")
+ 
+# 定義矩形框繪製函數
+def dRect(lux, luy, w, h, s=1, c="lightgrey"):
+    ctx.lineWidth = s
+    ctx.strokeStyle = c
+    ctx.beginPath()
+    ctx.rect(lux, luy, w, h)
+    ctx.stroke()
+ 
+# 繪製網格
+def grid(width, height, grid_pix):
+    for i in range(width):
+        for j in range(height):
+            dRect(i * grid_pix, j * grid_pix, grid_pix, grid_pix)
+ 
+# 填充顏色
+def fill(x, y, color):
+    ctx.fillStyle = color
+    ctx.fillRect(x * gs, y * gs, gs, gs)
+ 
+# 在網格中圍出圓形區域
+def draw_circle_border(cx, cy, radius):
+    for i in range(10):  # x 方向格數
+        for j in range(10):  # y 方向格數
+            # 計算該格的中心座標
+            center_x = i + 0.5
+            center_y = j + 0.5
+            # 判斷中心點是否在圓周附近
+            distance = ((center_x - cx) ** 2 + (center_y - cy) ** 2) ** 0.5
+            if abs(distance - radius) <= 0.5:  # 設定容忍度
+                fill(i, j, "black")  # 填充黑色
+ 
+# 主程式
+grid(10, 10, gs)  # 繪製 10x10 的網格
+draw_circle_border(5, 5, 3)  # 在網格中心 (5, 5) 圍出半徑為 3 的圓
+</script>
+</p><br />w10 << <a href='w10.html'>Previous</a> <a href='w12.html'>Next</a> >> w12</div>
         
     <!-- footer -->
       <div class="container">

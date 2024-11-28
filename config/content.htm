@@ -46,10 +46,74 @@
 <p>題目1:<iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/Pp4J-sTfo00" width="560"></iframe></p>
 <p>題目2:<iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/H5afyiSMvaI" width="560"></iframe></p>
 <h3>w11</h3>
-<p>**圓形</p>
-<p><a href="https://mdecp2024.github.io/hw-FANG436/content/Brython-1.html?src=https://gist.githubusercontent.com/FANG436/f66548d89d21cd65b2a47927a34d1b72/raw/f0b8526076b7b2de6f7700aa39850d0e4906e65c/w11_hw">https://mdecp2024.github.io/hw-FANG436/content/Brython-1.html?src=https://gist.githubusercontent.com/FANG436/f66548d89d21cd65b2a47927a34d1b72/raw/f0b8526076b7b2de6f7700aa39850d0e4906e65c/w11_hw</a></p>
-<p>像素圓型</p>
-<p><a href="https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/8111f1c9b6676ceb13e9df95d6a896c1/raw/52afea7929604d2ed6a214029dde926ba9495509/w11_hw-2">https://mde.tw/cp2024/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/8111f1c9b6676ceb13e9df95d6a896c1/raw/52afea7929604d2ed6a214029dde926ba9495509/w11_hw-2</a></p>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['/static/','./../downloads/py/']});
+}
+</script>
+</p>
+<p><a href="https://mdecp2024.github.io/hw-FANG436/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/f66548d89d21cd65b2a47927a34d1b72/raw/f0b8526076b7b2de6f7700aa39850d0e4906e65c/w11_hw">圓形</a></p>
+<p><a href="https://mdecp2024.github.io/hw-FANG436/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/8111f1c9b6676ceb13e9df95d6a896c1/raw/52afea7929604d2ed6a214029dde926ba9495509/w11_hw-2">像素圓型</a></p>
+<div id="brython_div1"></div>
+<p>
+<script type="text/python3">
+# 從 browser 模組導入 html
+from browser import html
+# 從 browser 導入 document 並且重新命名為 doc
+from browser import document as doc
+ 
+# 建立 canvas
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+ 
+# 設定每格的大小
+gs = 20  # 每格 20x20 像素
+ctx = canvas.getContext("2d")
+ 
+# 定義矩形框繪製函數
+def dRect(lux, luy, w, h, s=1, c="lightgrey"):
+    ctx.lineWidth = s
+    ctx.strokeStyle = c
+    ctx.beginPath()
+    ctx.rect(lux, luy, w, h)
+    ctx.stroke()
+ 
+# 繪製網格
+def grid(width, height, grid_pix):
+    for i in range(width):
+        for j in range(height):
+            dRect(i * grid_pix, j * grid_pix, grid_pix, grid_pix)
+ 
+# 填充顏色
+def fill(x, y, color):
+    ctx.fillStyle = color
+    ctx.fillRect(x * gs, y * gs, gs, gs)
+ 
+# 在網格中圍出圓形區域
+def draw_circle_border(cx, cy, radius):
+    for i in range(10):  # x 方向格數
+        for j in range(10):  # y 方向格數
+            # 計算該格的中心座標
+            center_x = i + 0.5
+            center_y = j + 0.5
+            # 判斷中心點是否在圓周附近
+            distance = ((center_x - cx) ** 2 + (center_y - cy) ** 2) ** 0.5
+            if abs(distance - radius) <= 0.5:  # 設定容忍度
+                fill(i, j, "black")  # 填充黑色
+ 
+# 主程式
+grid(10, 10, gs)  # 繪製 10x10 的網格
+draw_circle_border(5, 5, 3)  # 在網格中心 (5, 5) 圍出半徑為 3 的圓
+</script>
+</p><h3>w12</h3>
 <h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
@@ -57,8 +121,7 @@
 <p>延續 HW 1 網頁資料整理與程式練習方法, 整理下列內容 (20%):</p>
 <p>PART 2: Introduction to lists and if/else statements</p>
 <p>PART 3: Introduction to the for loop</p>
-<p>完成上述流程整理後, 請將 HW2 自評分數輸入 cp2024 自評表單中.</p>
-<h2>HW 2 Exam</h2>
+<p>完成上述流程整理後, 請將 HW2 自評分數輸入 cp2024 自評表單中.</p><h2>HW 2 Exam</h2>
 <p>每六人為一組進行協同程式練習</p>
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 2 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
 <h1>HW 3</h1>
