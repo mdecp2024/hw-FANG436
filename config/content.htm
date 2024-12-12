@@ -119,7 +119,77 @@ draw_circle_border(5, 5, 3)  # 在網格中心 (5, 5) 圍出半徑為 3 的圓
 <p><br/><iframe allowfullscreen="allowfullscreen" data-mce-fragment="1" height="314" src="//www.youtube.com/embed/e-nV8FsArK8" width="560"></iframe><a href="https://mdecp2024.github.io/hw-FANG436/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/a1769a5e4481b957329aad9e3082d201/raw/e6d86a185f742ccec68fa6ef19d984aad53acb03/W12">print和for迴圈做10個程式</a></p>
 <p>要chatGPT幫我用print和for迴圈做10個程式後，再到Brython和Jupyter lab執行。</p>
 <p>Ai會使的人類更加懶散，不知不覺就會把遇到的問題丟給Ai處理。</p>
-<h1>HW 2</h1>
+<p></p>
+<h3>w13_hw</h3>
+<!-- 引入 Brython 程式庫 -->
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+<!-- 啟動 Brython -->
+<script>
+window.onload = function() {
+    brython({debug:1, pythonpath:['/static/', '../../downloads/py/']});
+}
+</script>
+<!-- 設置容器 -->
+<div id="brython div1"></div>
+<!-- 利用 Brython 繪圖 -->
+<script type="text/python">
+from browser import html
+from browser import document as doc
+
+# 利用 HTML 建立 canvas 並定義特性
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython div1"]
+brython_div <= canvas
+ctx = canvas.getContext("2d")
+
+ctx.lineWidth = 1
+ctx.strokeStyle = 'blue'
+ctx.beginPath()
+ctx.moveTo(10, 10)
+ctx.lineTo(100, 100)
+ctx.stroke()
+</script><h3>w13</h3>
+<div id="brython_div1"></div>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/get_page/cmsimde/static/brython.js"></script>
+<script src="/get_page/cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+ctx = canvas.getContext("2d")
+ctx.lineWidth = 1
+
+# 繪製兩個矩形
+ctx.strokeStyle = 'red'  # 設定矩形顏色為紅色
+ctx.beginPath() 
+ctx.rect(10, 10, 200, 200)
+ctx.rect(110, 110, 200, 200)
+ctx.stroke()
+
+# 繪製對角線，顏色設定為藍色
+ctx.strokeStyle = 'blue'  # 設定對角線顏色為藍色
+ctx.beginPath() 
+ctx.moveTo(10, 10)
+ctx.lineTo(210, 210)
+ctx.stroke()
+</script>
+</p><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
 <hr/>
