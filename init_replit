@@ -1,4 +1,4 @@
-#!/bin/bash
+git add .#!/bin/bash
 
 # Update Git submodules
 git submodule update --init
