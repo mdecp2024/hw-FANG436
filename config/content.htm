@@ -308,7 +308,43 @@ def draw_shapes(canvas):
 canvas = create_canvas()  # 創建畫布
 draw_shapes(canvas)  # 繪製所有圖形
 </script>
-</p><h1>HW 2</h1>
+</p>
+<h3>w15</h3>
+<p>題目1</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">sum_result = 0 #建立變數sum_result
+i = 1 #指定i等於1
+while i &lt;= 100: #使用while迴圈把i加到等於100
+sum_result += i
+i += 1
+print(sum_result)</pre>
+<p><a href="https://mdecp2024.github.io/hw-FANG436/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/c5a83e1750ca3d7fea0bb977a0e0e549/raw/fb74863e606f186a57687605730ce85c19a81dbd/w15">從 1 累加到 100</a><br/><br/></p>
+<p>題目2</p>
+<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">def addto(start, end):
+    sum_result = 0  # 初始化累加結果
+    i = start  # 設定 i 為開始值
+    while i &lt;= end:  # 使用 while 迴圈直到 i 超過結束值
+        sum_result += i  # 將 i 加到 sum_result 中
+        i += 1  # i 每次增加 1
+    return sum_result  # 返回最終的累加結果
+
+# 呼叫 addto 函式，傳入 1 和 100，並印出結果
+result = addto(1, 100)
+print(result)
+</pre>
+<p><a href="https://mdecp2024.github.io/hw-FANG436/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/6cca2ea080ffeb81e81c6cd6a765ba8a/raw/c71fa7d7b85acd643ec2058c11d979e23e0903c0/w15-2">addto</a></p>
+<p>題目3</p>
+<pre class="brush:html;auto-links:false;toolbar:false" contenteditable="false">def add_only_even(start, end):
+    sum_result = 0  # 初始化累加結果
+    for i in range(start, end + 1):  # 使用 for 迴圈從 start 到 end (包含 end)
+        if i % 2 == 0:  # 如果 i 是偶數
+            sum_result += i  # 將偶數加到 sum_result 中
+    return sum_result  # 返回最終的累加結果
+
+# 呼叫 add_only_even 函式，傳入 1 和 100，並印出結果
+result = add_only_even(1, 100)
+print(result)
+</pre>
+<p><a href="https://mdecp2024.github.io/hw-FANG436/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/ea325ea234245fefde3a46fd393f6d76/raw/ed917348d8528c635ab4063a11d3a632802a85bc/w15-3">add_only_even</a></p><h1>HW 2</h1>
 <h4>主題: Python 的數列、判斷式與重複迴圈 (20%)<span style="background-color: #ffff99;"><br/></span></h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 2 and Part 3</p>
 <hr/>
