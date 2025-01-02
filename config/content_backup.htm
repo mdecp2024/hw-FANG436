@@ -115,7 +115,7 @@ draw_circle_border(5, 5, 3)  # 在網格中心 (5, 5) 圍出半徑為 3 的圓
 </script>
 </p>
 <p><br/><br/></p>
-<h3>w12-hw</h3>
+<h3>w12_hw</h3>
 <p><br/><iframe allowfullscreen="allowfullscreen" data-mce-fragment="1" height="314" src="//www.youtube.com/embed/e-nV8FsArK8" width="560"></iframe><a href="https://mdecp2024.github.io/hw-FANG436/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/a1769a5e4481b957329aad9e3082d201/raw/e6d86a185f742ccec68fa6ef19d984aad53acb03/W12">print和for迴圈做10個程式</a></p>
 <p>要chatGPT幫我用print和for迴圈做10個程式後，再到Brython和Jupyter lab執行。</p>
 <p>Ai會使的人類更加懶散，不知不覺就會把遇到的問題丟給Ai處理。</p>
@@ -393,6 +393,7 @@ print(result)
 <p>透過 Jupyterlab 協同網頁, 輪流指定各組編寫 HW 2 相關的程式練習, 以及網頁內容 (localhost 與 Codespaces 環境)編輯.</p>
 <h3>w16_exam1</h3>
 <p><a href="https://mdecp2024.github.io/hw-FANG436/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/d42969d48876bd6b75bdafa39307ddd2/raw/7d0c6d9dc03a525704e6838fd9e190467f168c0c/w16_exam1.py">anchor</a></p>
+<p><a href="https://youtu.be/YofU5F4sDmU">w16_exam1</a></p>
 <pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
 import math
   
@@ -483,7 +484,94 @@ ctx.fill()
 ctx.beginPath()
 ctx.rect(320, 90, 60, 20)
 ctx.fillStyle = "Blue"
-ctx.fill()</pre><h1>HW 3</h1>
+ctx.fill()</pre>
+<h3>w16_exam2</h3>
+<p><a href="https://mdecp2024.github.io/hw-FANG436/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/a7906e1a5b8fe5f5e3247ae9efeda05b/raw/7b8bcef73a224ca5a215d332aa79e593692d39bb/w16_exam2.py">w16_exam2</a></p>
+<p><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/jMTYWSiJy7c" width="560"></iframe></p>
+<div id="brython_div1"></div>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="/static/brython.js"></script>
+<script src="/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+ 
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+from browser import html
+from browser import document as doc
+
+# Create the canvas
+canvas = html.CANVAS(width=300, height=300)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+# Get the drawing context
+ctx = canvas.getContext("2d")
+
+# Mark the start point (31, 29)
+ctx.font = "12px Arial"
+ctx.fillStyle = "red"
+ctx.fillText("(31, 29)", 35, 50)
+
+# Set line properties
+ctx.strokeStyle = "blue"
+ctx.lineWidth = 3
+
+# Offset for maze starting point
+offset_x = 31
+offset_y = 29
+# Draw maze walls
+ctx.beginPath()
+ctx.moveTo(offset_x + 0, offset_y + 0)
+ctx.lineTo(offset_x + 86, offset_y + 0)
+ctx.moveTo(offset_x + 0, offset_y + 0)
+ctx.lineTo(offset_x + 0, offset_y + 200)
+ctx.moveTo(offset_x + 120, offset_y + 0)
+ctx.lineTo(offset_x + 200, offset_y + 0)
+ctx.moveTo(offset_x + 200, offset_y + 0)
+ctx.lineTo(offset_x + 200, offset_y + 200)
+ctx.moveTo(offset_x + 0, offset_y + 200)
+ctx.lineTo(offset_x + 100, offset_y + 200)  # First part of bottom boundary
+ctx.moveTo(offset_x + 150, offset_y + 200)  # Gap
+ctx.lineTo(offset_x + 200, offset_y + 200)  # Second part of bottom boundary
+ctx.moveTo(offset_x + 86, offset_y + 157)
+ctx.lineTo(offset_x + 86, offset_y + 200)
+ctx.moveTo(offset_x + 86, offset_y + 157)
+ctx.lineTo(offset_x + 126, offset_y + 157)
+ctx.moveTo(offset_x + 160, offset_y + 120)
+ctx.lineTo(offset_x + 160, offset_y + 200)
+ctx.moveTo(offset_x + 160, offset_y + 120)
+ctx.lineTo(offset_x + 50, offset_y + 120)
+ctx.moveTo(offset_x + 50, offset_y + 120)
+ctx.lineTo(offset_x + 50, offset_y + 163)
+ctx.moveTo(offset_x + 126, offset_y + 80)
+ctx.lineTo(offset_x + 126, offset_y + 120)
+ctx.moveTo(offset_x + 0, offset_y + 80)
+ctx.lineTo(offset_x + 86, offset_y + 80)
+ctx.moveTo(offset_x + 86, offset_y + 40)
+ctx.lineTo(offset_x + 86, offset_y + 80)
+ctx.moveTo(offset_x + 40, offset_y + 40)
+ctx.lineTo(offset_x + 160, offset_y + 40)
+ctx.moveTo(offset_x + 160, offset_y + 40)
+ctx.lineTo(offset_x + 160, offset_y + 83)
+ctx.moveTo(offset_x + 200, offset_y + 20)
+ctx.lineTo(offset_x + 200, offset_y + 60)  # Draw only part of the wall, leaving a gap in the middle
+ctx.stroke()
+</script>
+</p><h1>HW 3</h1>
 <h4>主題: Python 的數字、演算法與迴圈 (20%)</h4>
 <p style="padding-left: 30px;">Python 課程教材: <a href="https://www.learnpythonwithjupyter.com/">https://www.learnpythonwithjupyter.com/</a> - PART 4 and Part 5</p>
 <p>完成上述流程整理後, 請將 HW3 自評分數輸入 cp2024 自評表單中.</p>
