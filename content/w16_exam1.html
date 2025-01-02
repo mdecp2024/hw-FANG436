@@ -143,15 +143,36 @@ img.add_border {
         </header>
     <div id="tipue_search_content">HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='w16_exam2.html'>Next</a> >> w16_exam2<br /><h1>w16_exam1</h1>
 <p><a href="https://mdecp2024.github.io/hw-FANG436/content/Brython.html?src=https://gist.githubusercontent.com/FANG436/d42969d48876bd6b75bdafa39307ddd2/raw/7d0c6d9dc03a525704e6838fd9e190467f168c0c/w16_exam1.py">anchor</a></p>
-<p><a href="https://youtu.be/YofU5F4sDmU">w16_exam1</a></p>
-<pre class="brush:py;auto-links:false;toolbar:false" contenteditable="false">from browser import document, html
+<div id="brython_div1"><iframe allowfullscreen="allowfullscreen" height="314" src="//www.youtube.com/embed/YofU5F4sDmU" width="560"></iframe></div>
+<!-- 導入 brython 程式庫 -->
+<p>
+<script src="./../cmsimde/static/brython.js"></script>
+<script src="./../cmsimde/static/brython_stdlib.js"></script>
+</p>
+<!-- 啟動 Brython -->
+<p>
+<script>
+window.onload=function(){
+brython({debug:1, pythonpath:['./../cmsimde/static/','./../downloads/py/']});
+}
+</script>
+<script type="text/python3">
+from browser import html
+from browser import document as doc
+ 
+# 利用 html 建立 canvas 超文件物件
+canvas = html.CANVAS(width=400, height=400)
+brython_div = doc["brython_div1"]
+brython_div <= canvas
+
+from browser import document, html
 import math
   
 # 初始化 HTML，確保 canvas 元素存在
 def setup_canvas():
     if not document.querySelector("#my_canvas"):
         canvas = html.CANVAS(id="my_canvas", width=800, height=600)
-        document &lt;= canvas
+        document <= canvas
   
 setup_canvas()
  
@@ -234,8 +255,9 @@ ctx.fill()
 ctx.beginPath()
 ctx.rect(320, 90, 60, 20)
 ctx.fillStyle = "Blue"
-ctx.fill()</pre>
-<br />HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='w16_exam2.html'>Next</a> >> w16_exam2</div>
+ctx.fill()
+</script>
+</p><br />HW 2 Exam << <a href='HW 2 Exam.html'>Previous</a> <a href='w16_exam2.html'>Next</a> >> w16_exam2</div>
         
     <!-- footer -->
       <div class="container">
